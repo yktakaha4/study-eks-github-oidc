@@ -3,7 +3,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      CostGroup = local.cluster_name
+      CostGroup = var.resource_prefix
     }
   }
 }

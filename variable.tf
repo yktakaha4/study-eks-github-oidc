@@ -9,3 +9,7 @@ variable "resource_prefix" {
 variable "vpc_cidr_first_and_second_octets" {
   default = "172.16"
 }
+
+variable "github_repository_name" {
+  default = "yktakaha4/study-eks-gitops"
+}

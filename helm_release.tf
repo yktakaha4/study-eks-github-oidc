@@ -10,7 +10,7 @@ resource "helm_release" "albc" {
       clusterName = module.eks.cluster_id
       serviceAccount = {
         create = true
-        name   = lower("aws-load-balancer-controller-${random_string.suffix.result}-service-account")
+        name   = lower("aws-load-balancer-controller-${var.resource_prefix}-service-account")
         annotations = {
           "eks.amazonaws.com/role-arn" = module.albc_irsa.this_iam_role_arn
         }
