@@ -1,8 +1,8 @@
-resource "aws_iam_policy_attachment" "github_actions_readonly_policy" {
-  name = "${var.resource_prefix}-github-actions-readonly"
+resource "aws_iam_policy_attachment" "github_actions" {
+  name = "${var.resource_prefix}-github-actions"
   roles = [
-    aws_iam_role.github_actions_role.name,
+    aws_iam_role.github_actions.name,
   ]
 
-  policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
+  policy_arn = aws_iam_policy.github_actions.arn
 }

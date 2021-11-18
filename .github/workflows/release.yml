@@ -5,7 +5,7 @@ name: Release
 permissions:
   id-token: write
   contents: read
-  pull-requests: write
+  # pull-requests: write
 
 jobs:
   release:
@@ -23,9 +23,7 @@ jobs:
           curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.22.0/bin/linux/amd64/kubectl
           chmod +x ./kubectl
 
-      - run: aws eks update-kubeconfig --name "$CLUSTER_NAME"
-        env:
-          CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+      - run: aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }}
 
       - run: ./kubectl apply -f ./manifests/namespace.yml
 

@@ -5,5 +5,5 @@ output "cluster_name" {
 
 output "role_to_assume" {
   description = "IAM Role to assume."
-  value       = aws_iam_role.github_actions_role.arn
+  value       = aws_iam_role.github_actions.arn
 }

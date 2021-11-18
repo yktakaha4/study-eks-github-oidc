@@ -13,8 +13,8 @@ module "eks" {
   vpc_id = module.vpc.vpc_id
 
   map_roles = [{
-    rolearn  = aws_iam_role.github_actions_role.arn
-    username = aws_iam_role.github_actions_role.name
+    rolearn  = aws_iam_role.github_actions.arn
+    username = aws_iam_role.github_actions.name
     groups   = ["system:masters"]
   }]
 
