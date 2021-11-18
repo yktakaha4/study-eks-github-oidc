@@ -31,7 +31,6 @@ jobs:
       - run: ./kubectl diff -f ./manifests/sock-shop.yml 2>&1 | tee diff.log
 
       - run: |
-          [[ ! -s diff.log ]] && echo "there is no difference."
           details="$(cat diff.log)"
           details="${details//'%'/'%25'}"
           details="${details//$'\n'/'%0A'}"
