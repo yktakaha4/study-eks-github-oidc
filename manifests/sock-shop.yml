@@ -253,11 +253,9 @@ metadata:
     name: front-end
   namespace: sock-shop
 spec:
-  type: NodePort
   ports:
     - port: 80
       targetPort: 8079
-      nodePort: 30001
   selector:
     name: front-end
 ---
@@ -689,24 +687,24 @@ spec:
       targetPort: 80
   selector:
     name: user
-# ---
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: sock-shop
-#   namespace: sock-shop-front-end
-#   annotations:
-#     kubernetes.io/ingress.class: alb
-#     alb.ingress.kubernetes.io/scheme: internet-facing
-#     alb.ingress.kubernetes.io/success-codes: 200-399
-# spec:
-#   rules:
-#     - http:
-#         paths:
-#           - path: /*
-#             pathType: Prefix
-#             backend:
-#               service:
-#                 name: front-end
-#                 port:
-#                   number: 80
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sock-shop
+  namespace: sock-shop
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/success-codes: 200-399
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            pathType: Prefix
+            backend:
+              service:
+                name: front-end
+                port:
+                  number: 80

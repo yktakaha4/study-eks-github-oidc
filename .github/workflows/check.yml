@@ -19,11 +19,12 @@ jobs:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           aws-region: ap-northeast-1
 
+      - run: aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }}
+
       - run: |
           curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.22.0/bin/linux/amd64/kubectl
           chmod +x ./kubectl
-
-      - run: aws eks update-kubeconfig --name ${{ secrets.CLUSTER_NAME }}
+          ./kubectl version
 
       - run: ./kubectl apply -f ./manifests/namespace.yml
 
