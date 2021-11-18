@@ -27,4 +27,6 @@ jobs:
         env:
           CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
 
-      - run: ./kubectl diff -f sock-shop.yml
+      - run: ./kubectl apply -f ./manifests/namespace.yml
+
+      - run: ./kubectl diff -f ./manifests/sock-shop.yml
