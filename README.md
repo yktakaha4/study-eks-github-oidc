@@ -30,4 +30,4 @@ role_to_assume = "arn:aws:iam::1234567890:role/study-eks-gitops-github-actions"
 Usage が完了すると、以下が実施できます
 
 - PR 作成時に `sock-shop.yml` の内容を `kubectl diff` した結果をコメント
-- Actions タブより、任意のブランチの内容で稼働環境に `sock-shop.yml` をデプロイする
+- Actions タブより、任意のブランチの内容で稼働環境に `sock-shop.yml` をデプロイできる
