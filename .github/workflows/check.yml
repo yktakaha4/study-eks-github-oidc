@@ -35,16 +35,16 @@ jobs:
           details="${details//$'\n'/'%0A'}"
           details="${details//$'\r'/'%0D'}"
           echo "::set-output name=details::$details"
+        id: diff_details
 
       - uses: actions/github-script@v5
         with:
           script: |
-            const { OUTPUT_VALIDATE } = process.env
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `### kubectl diff result\n\n<details>\n\n\`\`\`${DETAILS}\n\`\`\`\n\n</details>`
+              body: `### kubectl diff result\n\n<details>\n\n\`\`\`${process.env.DETAILS}\n\`\`\`\n\n</details>`
             })
         env:
-          DETAILS: "${{ steps.run_validate.outputs.details }}"
+          DETAILS: "${{ steps.diff_details.outputs.details }}"
