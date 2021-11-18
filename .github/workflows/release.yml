@@ -8,13 +8,13 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate:
+  release:
     runs-on: ubuntu-20.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v2
 
-      - uses: aws-actions/configure-aws-credentials@fcd8bb1
+      - uses: aws-actions/configure-aws-credentials@fcd8bb1e0a3c9d2a0687615ee31d34d8aea18a96
         with:
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           aws-region: ap-northeast-1
