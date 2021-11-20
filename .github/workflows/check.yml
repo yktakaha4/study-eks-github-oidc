@@ -26,8 +26,6 @@ jobs:
           chmod +x ./kubectl
           ./kubectl version
 
-      - run: ./kubectl apply -f ./manifests/namespace.yml
-
       - run: ./kubectl diff -f ./manifests/sock-shop.yml 2>&1 | tee diff.log
 
       - run: |

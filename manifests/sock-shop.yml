@@ -94,6 +94,11 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp-volume
+          resources:
+            requests:
+              memory: 200Mi
+            limits:
+              memory: 200Mi
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -233,6 +238,9 @@ spec:
             requests:
               cpu: 100m
               memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
           ports:
             - containerPort: 8079
           securityContext:
@@ -356,6 +364,11 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp-volume
+          resources:
+            requests:
+              memory: 200Mi
+            limits:
+              memory: 200Mi
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -501,6 +514,11 @@ spec:
                 - SETUID
                 - DAC_OVERRIDE
             readOnlyRootFilesystem: true
+          resources:
+            requests:
+              memory: 300Mi
+            limits:
+              memory: 300Mi
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -558,6 +576,11 @@ spec:
           volumeMounts:
             - mountPath: /tmp
               name: tmp-volume
+          resources:
+            requests:
+              memory: 200Mi
+            limits:
+              memory: 200Mi
       volumes:
         - name: tmp-volume
           emptyDir:

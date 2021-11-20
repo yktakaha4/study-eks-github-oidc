@@ -15,7 +15,7 @@ module "eks" {
   map_roles = [{
     rolearn  = aws_iam_role.github_actions.arn
     username = aws_iam_role.github_actions.name
-    groups   = ["system:masters"]
+    groups   = ["github-actions-service-account"]
   }]
 
   node_groups = {

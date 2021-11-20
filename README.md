@@ -23,6 +23,10 @@ $ terraform apply
 $ terraform output
 cluster_name = "study-eks-gitops"
 role_to_assume = "arn:aws:iam::1234567890:role/study-eks-gitops-github-actions"
+
+# CIから変更しない固定のk8sオブジェクトを作成
+$ aws eks update-kubeconfig --name study-eks-gitops
+$ kubectl apply -f ./manifests/system.yml
 ```
 
 ## GitHub Actions
