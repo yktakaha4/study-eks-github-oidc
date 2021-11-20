@@ -1,4 +1,4 @@
-# study-eks-gitops
+# study-eks-github-oidc
 
 ## Prerequirements
 
@@ -21,11 +21,11 @@ $ terraform apply
 
 # 実行後に表示される以下の値を、GitHubのSettings -> Secretsから CLUSTER_NAME, ROLE_TO_ASSUME の名前で設定してください
 $ terraform output
-cluster_name = "study-eks-gitops"
-role_to_assume = "arn:aws:iam::1234567890:role/study-eks-gitops-github-actions"
+cluster_name = "study-eks-github-oidc"
+role_to_assume = "arn:aws:iam::1234567890:role/study-eks-github-oidc-github-actions"
 
 # CIから変更しない固定のk8sオブジェクトを作成
-$ aws eks update-kubeconfig --name study-eks-gitops
+$ aws eks update-kubeconfig --name study-eks-github-oidc
 $ kubectl apply -f ./manifests/system.yml
 ```
 
@@ -42,7 +42,7 @@ Usage が完了すると、以下が実施できます
 
 ```
 # EKSへのアクセス権限を取得
-$ aws eks update-kubeconfig --name study-eks-gitops
+$ aws eks update-kubeconfig --name study-eks-github-oidc
 
 # ALBの確認
 $ kubectl get ingress -n sock-shop
@@ -56,7 +56,7 @@ sock-shop   <none>   *       k8s-sockshop-sockshop-xxxxxxxx-12345678.ap-northeas
 
 ```
 # EKSへのアクセス権限を取得
-$ aws eks update-kubeconfig --name study-eks-gitops
+$ aws eks update-kubeconfig --name study-eks-github-oidc
 
 # クラスタの各種オブジェクト削除
 # これを忘れてterraform destroyすると、ALBなどk8s経由で作成したリソースが消えないので注意

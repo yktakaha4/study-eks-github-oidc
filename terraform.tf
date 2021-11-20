@@ -3,7 +3,7 @@
 # terraform {
 #   backend "s3" {
 #     bucket = "YOUR_BUCKET_NAME"
-#     key    = "study-eks-gitops/terraform.tfstate"
+#     key    = "study-eks-github-oidc/terraform.tfstate"
 #     region = "ap-northeast-1"
 #   }
 # }

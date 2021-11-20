@@ -3,7 +3,7 @@ variable "region" {
 }
 
 variable "resource_prefix" {
-  default = "study-eks-gitops"
+  default = "study-eks-github-oidc"
 }
 
 variable "vpc_cidr_first_and_second_octets" {
@@ -11,5 +11,5 @@ variable "vpc_cidr_first_and_second_octets" {
 }
 
 variable "github_repository_name" {
-  default = "yktakaha4/study-eks-gitops"
+  default = "yktakaha4/study-eks-github-oidc"
 }

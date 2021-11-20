@@ -19,7 +19,7 @@ module "eks" {
   }]
 
   node_groups = {
-    study-eks-gitops = {
+    study-eks-github-oidc = {
       # Sock-shopの起動にIPが必要
       # https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI
       desired_capacity = 4
