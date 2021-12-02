@@ -1,5 +1,7 @@
 # study-eks-github-oidc
 
+https://zenn.dev/yktakaha4/articles/access_eks_with_github_actions_oidc
+
 ## Prerequirements
 
 いずれも、ローカルからのインフラのデプロイのために使用します
